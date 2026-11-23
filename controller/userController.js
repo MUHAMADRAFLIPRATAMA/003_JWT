@@ -60,7 +60,7 @@ async function login(req, res) {
             where: { email }
         });
 
-        if (!user) {
+        if (!user || !user.password) {
             return res.status(401).json({
                 message: "Email atau password salah."
             });
